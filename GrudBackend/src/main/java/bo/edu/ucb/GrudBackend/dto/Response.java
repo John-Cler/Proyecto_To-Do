@@ -48,9 +48,9 @@ public class Response<X> {
     @Override
     public String toString() {
         return "Response{" +
-                "errorMessage='" + getErrorMessage() + '\'' +// Concatena el mensaje de error
-                ", code='" + getCode() + '\'' + // Concatena el código de respuesta
-                ", response=" + getResponse() + // Concatena la respuesta (de tipo genérico)
+                "errorMessage='" + getErrorMessage() + "'" +// Concatena el mensaje de error
+                ", code='" + getCode() + "'" + // Concatena el código de respuesta
+                ", response=" + getResponse() + "'" + // Concatena la respuesta (de tipo genérico)
                 '}';
     }
 }
