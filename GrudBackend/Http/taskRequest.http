@@ -1,7 +1,31 @@
-POST http://localhost:8080/login
+#Solicitud para crear una nueva tarea
+POST http://localhost:8080/tasks
 Content-Type: application/json
 
 {
-  "username": "admin",
-  "password": "password"
+  "description": "Nueva tarea",
+  "date": "2023-09-30",
+  "status": false,
+  "labelIds": [1]
 }
+###
+#Crear tarea
+GET http://localhost:8080/tasks
+
+###
+#Actualizar una tarea por su ID (PUT):
+PUT http://localhost:8080/tasks/1
+Content-Type: application/json
+
+{
+  "taskId": 1,
+  "description": "Tarea actualizada",
+  "date": "2023-10-01",
+  "status": true,
+  "labelIds": [4, 5]
+}
+
+###
+#Eliminar una tarea por su ID (DELETE):
+DELETE http://localhost:8080/tasks/1
+

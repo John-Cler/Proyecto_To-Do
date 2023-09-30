@@ -1,29 +1,30 @@
 package bo.edu.ucb.GrudBackend.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 
 @Entity
+@Table(name = "task")
 public class TaskEntity {
-    @Id
+    @Id //Esta anotación marca el campo id como la clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //Esta anotación indica que el valor del campo id se generará automáticamente
+    @Column(unique = true,nullable = false)//Esta anotación especifica que el campo id en la base de datos
+
     private Long id;
     private String description;
     private Date date;
-    private boolean completed;
+    private boolean state;
 
     public TaskEntity() {
     }
 
-    public TaskEntity(Long id, String description, Date date, boolean completed) {
+    public TaskEntity(Long id, String description, Date date, boolean state) {
         this.id = id;
         this.description = description;
         this.date = date;
-        this.completed = completed;
+        this.state = state;
     }
 
     public Long getId() {
@@ -38,7 +39,7 @@ public class TaskEntity {
         return description;
     }
 
-    public void setDescripcion(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -50,21 +51,11 @@ public class TaskEntity {
         this.date = date;
     }
 
-    public boolean isCompleted() {
-        return completed;
+    public boolean isState() {
+        return state;
     }
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
-    @Override
-    public String toString() {
-        return "TaskEntity{" +
-                "id=" + getId() +
-                ", descripcion='" + getDescription() + '\'' +
-                ", date='" + getDate() + '\'' +
-                ", completed=" + completed +
-                '}';
+    public void setState(boolean state) {
+        this.state = state;
     }
 }
