@@ -2,25 +2,25 @@ package bo.edu.ucb.GrudBackend.dto;
 
 public class Login {
     //Declaramos dos campos privados usuarname y password
-    private String user;
+    private String username;
     private String password;
     //Creacion de Constructor vacio
     public Login() {
 
     }
     //Creacion de construnctor
-    public Login(String user, String password) {
-        this.user = user;
+    public Login(String username, String password) {
+        this.username = username;
         this.password = password;
     }
     //Constuccion de Getters y Setters
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -34,8 +34,8 @@ public class Login {
     @Override
     public String toString() {
         return "Login{" +
-                "user='" + getUser() + '\'' +
-                ", password='" + getPassword() + '\'' +
+                "username='" + getUsername() + '\'' +
+                ", password='" + getUsername() + '\'' +
                 '}';
     }
 }

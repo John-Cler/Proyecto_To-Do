@@ -1,22 +1,21 @@
 package bo.edu.ucb.GrudBackend.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class User {
+@Table(name = "login")
+public class LoginEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true,nullable = false)
     private Long id;
     private String username;
     private String password;
 
-    public User() {
+    public LoginEntity() {
     }
 
-    public User(Long id, String username, String password) {
+    public LoginEntity(Long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;

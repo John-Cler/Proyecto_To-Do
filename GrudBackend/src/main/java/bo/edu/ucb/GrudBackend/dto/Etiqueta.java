@@ -1,9 +1,10 @@
 package bo.edu.ucb.GrudBackend.dto;
 
+import org.hibernate.annotations.Comment;
+
 public class Etiqueta {
     private Integer etiquetId;
     private String nombre;
-
     public Etiqueta(Integer etiquetId, String nombre) {
         this.etiquetId = etiquetId;
         this.nombre = nombre;

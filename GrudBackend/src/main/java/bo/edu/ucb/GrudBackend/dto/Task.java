@@ -7,15 +7,17 @@ public class Task {
     private Integer taskId;
     private String description;
     private Date date;
+    private boolean status;
     private List<Integer> labelIds;
 
     public Task() {
 
     }
-    public Task(Integer taskId, String description, Date date, List<Integer> labelIds) {
+    public Task(Integer taskId, String description, Date date, boolean status, List<Integer> labelIds) {
         this.taskId = taskId;
         this.description = description;
         this.date = date;
+        this.status = status;
         this.labelIds = labelIds;
     }
 
@@ -43,6 +45,14 @@ public class Task {
         this.date = date;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     public List<Integer> getLabelIds() {
         return labelIds;
     }
@@ -51,13 +61,6 @@ public class Task {
         this.labelIds = labelIds;
     }
 
-    @Override
-    public String toString() {
-        return "Task{" +
-                "taskId=" + getTaskId() + "'" +
-                ", description='" + getDescription() + "'" +
-                ", date=" + getDate() + "'" +
-                ", labelIds=" + getLabelIds() + "'" +
-                '}';
+    public void setDate(String date) {
     }
 }
