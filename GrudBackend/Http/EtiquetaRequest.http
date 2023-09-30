@@ -1,0 +1,24 @@
+### Crear Etiqueta (POST) ###
+POST http://localhost:8080/etiquetas/
+Content-Type: application/json
+
+{
+  "title": "Nueva Etiqueta"
+}
+
+### Obtener Todas las Etiquetas (GET) ###
+GET http://localhost:8080/etiquetas/
+
+### Obtener Etiqueta por ID (GET) ###
+GET http://localhost:8080/etiquetas/{id}
+
+### Actualizar Etiqueta por ID (PUT) ###
+PUT http://localhost:8080/etiquetas/{id}
+Content-Type: application/json
+
+{
+  "title": "Etiqueta Actualizada"
+}
+
+### Eliminar Etiqueta por ID (DELETE) ###
+DELETE http://localhost:8080/etiquetas/{id}
