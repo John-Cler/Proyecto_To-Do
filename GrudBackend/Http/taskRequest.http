@@ -1,20 +1,20 @@
 #Solicitud para crear una nueva tarea
-POST http://localhost:8080/tasks
+POST http://localhost:8080/api/v1/create
 Content-Type: application/json
 
 {
   "description": "Nueva tarea",
-  "date": "2023-09-30",
-  "status": false,
-  "labelIds": [1]
+  "date": "30-09-2023",
+  "status": true,
+  "labelIds": [1,2]
 }
 ###
-#Crear tarea
-GET http://localhost:8080/tasks
+#Listar Task
+GET http://localhost:8080/api/v1/alltask
 
 ###
 #Actualizar una tarea por su ID (PUT):
-PUT http://localhost:8080/tasks/1
+PUT http://localhost:8080/api/v1/update/{{id}}
 Content-Type: application/json
 
 {
@@ -27,5 +27,5 @@ Content-Type: application/json
 
 ###
 #Eliminar una tarea por su ID (DELETE):
-DELETE http://localhost:8080/tasks/1
+DELETE http://localhost:8080/api/v1/delete/{{id}}
 

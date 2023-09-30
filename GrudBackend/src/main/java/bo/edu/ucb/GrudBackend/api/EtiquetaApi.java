@@ -16,27 +16,27 @@ public class EtiquetaApi {
     public EtiquetaApi(EtiquetaServiceI etiquetaServiceI) {
         this.etiquetaServiceI = etiquetaServiceI;
     }
-    @GetMapping("/")
+    @GetMapping("/api/v1/alletiqueta")
     public List<LabelEntity> obtenerTodasLasEtiquetas() {
         return etiquetaServiceI.obtenerTodasLasEtiquetas();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/api/v1/Idetiqueta/{id}")
     public LabelEntity obtenerEtiquetaPorId(@PathVariable Long id) {
         return etiquetaServiceI.obtenerEtiquetaPorId(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("/api/v1/etiqueta")
     public LabelEntity crearEtiqueta(@RequestBody LabelEntity etiqueta) {
         return etiquetaServiceI.crearEtiqueta(etiqueta);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/api/v1/update/{id}")
     public LabelEntity actualizarEtiqueta(@PathVariable Long id, @RequestBody LabelEntity etiqueta) {
         return etiquetaServiceI.actualizarEtiqueta(id, etiqueta);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/v1/delete/{id}")
     public void eliminarEtiqueta(@PathVariable Long id) {
         etiquetaServiceI.eliminarEtiqueta(id);
     }
