@@ -1,6 +1,6 @@
 package bo.edu.ucb.GrudBackend.dto;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class Task {
@@ -8,17 +8,17 @@ public class Task {
     private String description;
     private Date date;
     private boolean status;
-    private List<Integer> labelIds;
+    private List<Integer> labels;
 
     public Task() {
 
     }
-    public Task(Integer taskId, String description, Date date, boolean status, List<Integer> labelIds) {
+    public Task(Integer taskId, String description, Date date, boolean status, List<Integer> labels) {
         this.taskId = taskId;
         this.description = description;
         this.date = date;
         this.status = status;
-        this.labelIds = labelIds;
+        this.labels = labels;
     }
 
     public Integer getTaskId() {
@@ -38,7 +38,7 @@ public class Task {
     }
 
     public java.sql.Date getDate() {
-        return (java.sql.Date) date;
+        return date;
     }
 
     public void setDate(Date date) {
@@ -54,13 +54,12 @@ public class Task {
     }
 
     public List<Integer> getLabelIds() {
-        return labelIds;
+        return labels;
     }
 
     public void setLabelIds(List<Integer> labelIds) {
-        this.labelIds = labelIds;
+        this.labels = labelIds;
     }
 
-    public void setDate(String date) {
-    }
+
 }

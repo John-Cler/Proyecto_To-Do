@@ -12,26 +12,26 @@ public class TaskEntity {
     //Esta anotación indica que el valor del campo id se generará automáticamente
     @Column(unique = true,nullable = false)//Esta anotación especifica que el campo id en la base de datos
 
-    private Long id;
+    private Integer id;
     private String description;
     private Date date;
     private boolean state;
 
     public TaskEntity() {
     }
-
-    public TaskEntity(Long id, String description, Date date, boolean state) {
+//
+    public TaskEntity(Integer id, String description, Date date, boolean state) {
         this.id = id;
         this.description = description;
         this.date = date;
         this.state = state;
     }
-
-    public Long getId() {
+    //Constructor vacio
+    public Integer getId() {
         return id;
     }
-
-    public void setId(Long id) {
+//metodos de getters y Setters
+    public void setId(Integer id) {
         this.id = id;
     }
 

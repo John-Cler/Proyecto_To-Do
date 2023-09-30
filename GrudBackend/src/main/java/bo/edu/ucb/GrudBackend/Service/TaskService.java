@@ -75,11 +75,30 @@ public class TaskService implements TaskServiceI {
 
 //    // Métodos de conversión entre DTO y Entity
     private TaskEntity convertToEntity(Task task) {
-        return null;// Implementa la conversión de Task a TaskEntity aquí
+        try {
+            ;// Implementa la conversión de Task a TaskEntity aquí
+            TaskEntity taskEntity = new TaskEntity();
+            taskEntity.setDescription(task.getDescription());
+            return taskEntity;
+        }catch (Exception e){
+            // Loguea el error o maneja la excepción de alguna otra manera
+            e.printStackTrace();
+            // En este caso, podrías lanzar una excepción personalizada si lo prefieres
+            throw new RuntimeException("Error en la conversión de Task a TaskEntity", e);
+        }
+
     }
 //
     private Task convertToDto(TaskEntity taskEntity) {
-        return null;
+        Task task = new Task();
+        task.setTaskId(taskEntity.getId());
+        task.setDescription(taskEntity.getDescription());
+        task.setDate(taskEntity.getDate());
+        task.setStatus(taskEntity.isState());
+        // Si tienes una lista de etiquetas en TaskEntity, puedes copiarla a la lista labels de Task
+        // task.setLabelIds(taskEntity.getLabels());
+
+        return task;
         // Implementa la conversión de TaskEntity a Task aquí
     }
 }
