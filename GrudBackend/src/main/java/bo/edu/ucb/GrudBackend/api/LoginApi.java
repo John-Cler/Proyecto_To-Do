@@ -14,22 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "*")
 public class LoginApi {
-//    @PostMapping("/login")
-//    public ResponseEntity<String> login(@RequestBody Login loginRequest) {
-//        if (authService.authenticate(loginRequest.getUser(), loginRequest.getPassword())) {
-//            return new ResponseEntity<>("Login exitoso", HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>("Credenciales incorrectas", HttpStatus.UNAUTHORIZED);
-//        }
-//    }
+
     @Autowired
     private LoginService loginService;
-
+    // Este endpoint permite a los usuarios iniciar sesión
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Login loginRequest) {
+        // Se inyecta el servicio de autenticación
         if (loginService.authenticate(loginRequest)) {
+            // Si la autenticación es exitosa, se devuelve una respuesta exitosa (código 200) con un mensaje
             return ResponseEntity.ok("Login exitoso");
         } else {
+            // Si la autenticación falla, se devuelve una respuesta de error no autorizado (código 401) con un mensaje
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas verifique su usuario y password porfavor");
         }
     }
