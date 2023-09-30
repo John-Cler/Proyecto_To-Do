@@ -28,28 +28,34 @@ public class TaskApi {
     // Este método permite obtener una lista de todas las tareas y devuelve una lista de objetos Task.
 
     // La siguiente línea define un método HTTP POST que responde a la URL "/api/v1/create"
-    @PostMapping("/api/v1/create")
+    @PostMapping("/api/v1/createNew")
     public Task createTask(@RequestBody Task task) {
-        return taskServiceI.createTask(task);
+        try {
+            return taskServiceI.createTask(task);
+        } catch (Exception e) {
+            // Maneja la excepción y registra en los registros
+            e.printStackTrace(); // Esto ayudará a identificar problemas específicos
+            throw new RuntimeException("Error al crear la tarea: " + e.getMessage(), e);
+        }
     }
     // Este método permite crear una nueva tarea y devuelve la tarea creada.
 
     // Esta línea define un método HTTP PUT que responde a la URL "/api/v1/update/{taskId}"
-    @PutMapping("/api/update/{taskId}")
+    @PutMapping("/api/updatetask/{taskId}")
     public Task updateTask(@PathVariable Long taskId, @RequestBody Task task) {
         return taskServiceI.updateTask(taskId, task);
     }
     // Este método permite actualizar una tarea existente y devuelve la tarea actualizada.
 
     // La siguiente línea define un método HTTP DELETE que responde a la URL "/api/v1/delete/{taskId}"
-    @DeleteMapping("/api/delete{taskId}")
+    @DeleteMapping("/api/delete/{taskId}")
     public void deleteTask(@PathVariable Long taskId) {
         taskServiceI.deleteTask(taskId);
     }
     // Este método permite eliminar una tarea existente.
 
     // La siguiente línea define un método HTTP GET que responde a la URL "/api/v1/gettask/{taskId}"
-    @GetMapping("/api/gettask{taskId}")
+    @GetMapping("/api/gettask/{taskId}")
     public Task getTaskById(@PathVariable Long taskId) {
         return taskServiceI.getTaskById(taskId);
     }

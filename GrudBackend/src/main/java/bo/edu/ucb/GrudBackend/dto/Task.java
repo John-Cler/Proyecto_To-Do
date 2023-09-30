@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 public class Task {
-    private Integer taskId;
+//    private Integer taskId;
     private String description;
     private Date date;
     private boolean status;
@@ -13,21 +13,20 @@ public class Task {
     public Task() {
 
     }
-    public Task(Integer taskId, String description, Date date, boolean status, List<Integer> labels) {
-        this.taskId = taskId;
+    public Task(String description, Date date, boolean status, List<Integer> labels) {
         this.description = description;
         this.date = date;
         this.status = status;
         this.labels = labels;
     }
 
-    public Integer getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Integer taskId) {
-        this.taskId = taskId;
-    }
+//    public Integer getTaskId() {
+//        return taskId;
+//    }
+//
+//    public void setTaskId(Integer taskId) {
+//        this.taskId = taskId;
+//    }
 
     public String getDescription() {
         return description;

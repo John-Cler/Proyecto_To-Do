@@ -34,9 +34,15 @@ public class TaskService implements TaskServiceI {
 
     @Override
     public Task createTask(Task task) {
-        TaskEntity taskEntity = convertToEntity(task);
-        TaskEntity savedEntity = taskRepository.save(taskEntity);
-        return convertToDto(savedEntity);
+        try {
+            TaskEntity taskEntity = convertToEntity(task);
+            TaskEntity savedEntity = taskRepository.save(taskEntity);
+            return convertToDto(savedEntity);
+        } catch (Exception e) {
+            // Maneja la excepción y registra en los registros
+            e.printStackTrace(); // Esto ayudará a identificar problemas específicos
+            throw new RuntimeException("Error al crear la tarea: " + e.getMessage(), e);
+        }
     }
 
     @Override
@@ -75,23 +81,16 @@ public class TaskService implements TaskServiceI {
 
 //    // Métodos de conversión entre DTO y Entity
     private TaskEntity convertToEntity(Task task) {
-        try {
-            ;// Implementa la conversión de Task a TaskEntity aquí
-            TaskEntity taskEntity = new TaskEntity();
-            taskEntity.setDescription(task.getDescription());
-            return taskEntity;
-        }catch (Exception e){
-            // Loguea el error o maneja la excepción de alguna otra manera
-            e.printStackTrace();
-            // En este caso, podrías lanzar una excepción personalizada si lo prefieres
-            throw new RuntimeException("Error en la conversión de Task a TaskEntity", e);
-        }
-
+        TaskEntity taskEntity = new TaskEntity();
+        taskEntity.setDescription(task.getDescription());
+        taskEntity.setDate(task.getDate());
+        taskEntity.setState(task.isStatus());
+        return taskEntity;
     }
 //
     private Task convertToDto(TaskEntity taskEntity) {
         Task task = new Task();
-        task.setTaskId(taskEntity.getId());
+//        task.setTaskId(taskEntity.getId());
         task.setDescription(taskEntity.getDescription());
         task.setDate(taskEntity.getDate());
         task.setStatus(taskEntity.isState());

@@ -2,7 +2,6 @@ package bo.edu.ucb.GrudBackend.api;
 
 import bo.edu.ucb.GrudBackend.Service.LoginService;
 import bo.edu.ucb.GrudBackend.dto.Login;
-import bo.edu.ucb.GrudBackend.dto.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,7 @@ public class LoginApi {
     @Autowired
     private LoginService loginService;
     // Este endpoint permite a los usuarios iniciar sesión
-    @PostMapping("/login")
+    @PostMapping("/api/v1/login")
     public ResponseEntity<String> login(@RequestBody Login loginRequest) {
         // Se inyecta el servicio de autenticación
         if (loginService.authenticate(loginRequest)) {
