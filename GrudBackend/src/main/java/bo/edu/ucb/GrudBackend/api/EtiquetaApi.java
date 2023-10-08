@@ -31,12 +31,12 @@ public class EtiquetaApi {
         return etiquetaServiceI.crearEtiqueta(etiqueta);
     }
 
-    @PutMapping("/api/v1/update/{id}")
+    @PutMapping("/api/v1/etiqueta/update/{id}")
     public LabelEntity actualizarEtiqueta(@PathVariable Long id, @RequestBody LabelEntity etiqueta) {
         return etiquetaServiceI.actualizarEtiqueta(id, etiqueta);
     }
 
-    @DeleteMapping("/api/v1/delete/{id}")
+    @DeleteMapping("/api/v1/etiqueta/delete/{id}")
     public void eliminarEtiqueta(@PathVariable Long id) {
         etiquetaServiceI.eliminarEtiqueta(id);
     }

@@ -52,9 +52,8 @@ public class TaskService implements TaskServiceI {
             TaskEntity taskEntity = optionalTaskEntity.get();
             taskEntity.setDescription(task.getDescription());
             taskEntity.setDate(task.getDate());
-            taskEntity.setState(task.isStatus());
-//            taskEntity.setLabelIds(task.getLabelIds());
-
+            taskEntity.setLabel(task.getLabel());
+            taskEntity.setState(task.isState());
             TaskEntity updatedEntity = taskRepository.save(taskEntity);
             return convertToDto(updatedEntity);
         } else {
@@ -82,18 +81,21 @@ public class TaskService implements TaskServiceI {
 //    // Métodos de conversión entre DTO y Entity
     private TaskEntity convertToEntity(Task task) {
         TaskEntity taskEntity = new TaskEntity();
+        taskEntity.setId(task.getId());
         taskEntity.setDescription(task.getDescription());
+        taskEntity.setLabel(task.getLabel());
         taskEntity.setDate(task.getDate());
-        taskEntity.setState(task.isStatus());
+        taskEntity.setState(task.isState());
         return taskEntity;
     }
 //
     private Task convertToDto(TaskEntity taskEntity) {
         Task task = new Task();
-//        task.setTaskId(taskEntity.getId());
+        task.setId(taskEntity.getId());
         task.setDescription(taskEntity.getDescription());
+        task.setLabel(taskEntity.getLabel());
         task.setDate(taskEntity.getDate());
-        task.setStatus(taskEntity.isState());
+        task.setState(taskEntity.isState());
         // Si tienes una lista de etiquetas en TaskEntity, puedes copiarla a la lista labels de Task
         // task.setLabelIds(taskEntity.getLabels());
 

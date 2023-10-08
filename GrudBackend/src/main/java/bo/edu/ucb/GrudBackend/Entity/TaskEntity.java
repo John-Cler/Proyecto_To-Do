@@ -14,15 +14,17 @@ public class TaskEntity {
 
     private Integer id;
     private String description;
+    private String label;
     private Date date;
     private boolean state;
 
     public TaskEntity() {
     }
 //
-    public TaskEntity(Integer id, String description, Date date, boolean state) {
+    public TaskEntity(Integer id, String description,String label, Date date, boolean state) {
         this.id = id;
         this.description = description;
+        this.label = label;
         this.date = date;
         this.state = state;
     }
@@ -57,5 +59,13 @@ public class TaskEntity {
 
     public void setState(boolean state) {
         this.state = state;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }

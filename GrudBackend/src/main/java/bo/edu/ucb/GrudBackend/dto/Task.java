@@ -4,29 +4,31 @@ import java.sql.Date;
 import java.util.List;
 
 public class Task {
-//    private Integer taskId;
+    private Integer id;
     private String description;
     private Date date;
-    private boolean status;
-    private List<Integer> labels;
+
+    private boolean state;
+
+    private String label;
 
     public Task() {
 
     }
-    public Task(String description, Date date, boolean status, List<Integer> labels) {
+    public Task(String description, Date date, boolean state, String label) {
         this.description = description;
         this.date = date;
-        this.status = status;
-        this.labels = labels;
+        this.state = state;
+        this.label = label;
     }
 
-//    public Integer getTaskId() {
-//        return taskId;
-//    }
-//
-//    public void setTaskId(Integer taskId) {
-//        this.taskId = taskId;
-//    }
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getDescription() {
         return description;
@@ -43,22 +45,18 @@ public class Task {
     public void setDate(Date date) {
         this.date = date;
     }
-
-    public boolean isStatus() {
-        return status;
+    public boolean isState() {
+        return state;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setState(boolean state) {
+        this.state = state;
     }
 
-    public List<Integer> getLabelIds() {
-        return labels;
+    public String getLabel() {
+        return label;
     }
-
-    public void setLabelIds(List<Integer> labelIds) {
-        this.labels = labelIds;
+    public void setLabel(String label) {
+        this.label = label;
     }
-
-
 }

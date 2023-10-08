@@ -41,21 +41,21 @@ public class TaskApi {
     // Este método permite crear una nueva tarea y devuelve la tarea creada.
 
     // Esta línea define un método HTTP PUT que responde a la URL "/api/v1/update/{taskId}"
-    @PutMapping("/api/updatetask/{taskId}")
+    @PutMapping("/api/v1/updatetask/{taskId}")
     public Task updateTask(@PathVariable Long taskId, @RequestBody Task task) {
         return taskServiceI.updateTask(taskId, task);
     }
     // Este método permite actualizar una tarea existente y devuelve la tarea actualizada.
 
     // La siguiente línea define un método HTTP DELETE que responde a la URL "/api/v1/delete/{taskId}"
-    @DeleteMapping("/api/delete/{taskId}")
+    @DeleteMapping("/api/v1/delete_task/{taskId}")
     public void deleteTask(@PathVariable Long taskId) {
         taskServiceI.deleteTask(taskId);
     }
     // Este método permite eliminar una tarea existente.
 
     // La siguiente línea define un método HTTP GET que responde a la URL "/api/v1/gettask/{taskId}"
-    @GetMapping("/api/gettask/{taskId}")
+    @GetMapping("/api/v1/gettask/{taskId}")
     public Task getTaskById(@PathVariable Long taskId) {
         return taskServiceI.getTaskById(taskId);
     }

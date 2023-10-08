@@ -18,8 +18,8 @@ public class LoginBl {
         // Por ejemplo, puedes verificar el usuario y la contraseña en una base de datos
 
         // Supongamos una autenticación básica de usuario "admin" y contraseña "password"
-        String expectedUser = "admin";
-        String expectedPassword = "password";
+        String expectedUser = "John";
+        String expectedPassword = "12345";
 
         return expectedUser.equals(login.getUsername()) && expectedPassword.equals(login.getPassword());
     }
